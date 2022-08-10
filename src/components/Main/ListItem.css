@@ -1,0 +1,61 @@
+.List-item {
+  list-style-type: none;
+  background-color: #fff;
+  display: flex;
+}
+
+.List-item__logo-button {
+  flex-basis: 36%;
+  border-right: 1px solid #eceff1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  padding: var(--spacing);
+}
+
+.List-item__logo-button > button {
+  color: #ffffff;
+  background-color: #ff6d00;
+  border: none;
+  border-radius: 4px;
+  padding: calc(var(--spacing) / 2);
+}
+
+.List-item__logo-button > button:hover {
+  cursor: pointer;
+  background-color: #ff8124;
+}
+
+.List-item__origin-destination {
+  flex-grow: 1;
+  display: flex;
+  padding: calc(var(--spacing) * 3 / 2);
+  line-height: 1;
+}
+
+.List-item__time {
+  font-size: var(--font-size-large);
+}
+
+.List-item__date {
+  font-size: var(--font-size-normal);
+}
+
+.List-item__location {
+  font-size: var(--font-size-normal);
+}
+
+.List-item__stops-line {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.List-item__origin,
+.List-item__destination {
+  flex-grow: 1;
+}
+
+.List-item__destination {
+  text-align: right;
+}
