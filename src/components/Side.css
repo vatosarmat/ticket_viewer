@@ -1,0 +1,12 @@
+.Side {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--spacing) / 2);
+}
+
+.Side-control {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) / 2);
+}

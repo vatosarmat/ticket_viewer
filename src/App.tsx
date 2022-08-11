@@ -30,8 +30,21 @@ type StateProviderProps = {
 const fetchDromDb = (): Promise<Ticket[]> =>
   fetch('tickets.json')
     .then(resp => resp.json())
-    .then((data: { tickets: Omit<Ticket, 'id'>[] }) =>
-      data.tickets.map((item, idx) => ({ ...item, id: idx.toString() }))
+    .then((data: { tickets: (Omit<Ticket, 'id' | 'priceRub'> & { price: number })[] }) =>
+      data.tickets.map((item, idx) => ({
+        id: idx.toString(),
+        origin: item.origin,
+        origin_name: item.origin_name,
+        destination: item.destination,
+        destination_name: item.destination_name,
+        departure_date: item.departure_date,
+        departure_time: item.departure_time,
+        arrival_date: item.arrival_date,
+        arrival_time: item.arrival_time,
+        carrier: item.carrier,
+        stops: item.stops,
+        priceRub: item.price,
+      }))
     )
 
 const StateProvider: React.FC<StateProviderProps> = ({ storedState }) => {

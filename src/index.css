@@ -1,6 +1,12 @@
 :root {
   --background-color: #f3f7fa;
+
+  --control-primary-color: #2196f3;
+  --control-hover-color: #f2fcff;
+  --control-border-color: #d2d5d6;
+
   --spacing: 24px;
+
   --font-size-normal: 16px;
   --font-size-smaller: 12px;
   --font-size-larger: 16px;

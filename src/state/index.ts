@@ -1,6 +1,8 @@
 import type { Reducer, Dispatch } from 'react'
 import { createContext } from 'react'
 
+import type { Currency } from 'utils/currency'
+
 export type Ticket = {
   id: string
   origin: string
@@ -13,23 +15,30 @@ export type Ticket = {
   arrival_time: string
   carrier: string
   stops: number
-  price: number
+  priceRub: number
 }
 
 export type State = {
   ticketTable: Record<string, Ticket>
-  ticketSortKey: 'price'
+  ticketSortKey: 'priceRub'
+  currency: Currency
 }
 
 export const initialState: State = {
   ticketTable: {},
-  ticketSortKey: 'price',
+  ticketSortKey: 'priceRub',
+  currency: 'RUB',
 }
 
-type Action = {
-  type: 'Ticket/add_bulk'
-  payload: { ticketList: Ticket[] }
-}
+type Action =
+  | {
+      type: 'Ticket/add_bulk'
+      payload: { ticketList: Ticket[] }
+    }
+  | {
+      type: 'Currency/set'
+      payload: { currency: Currency }
+    }
 
 export const reducer: Reducer<State, Action> = (state, { type, payload }) => {
   switch (type) {
@@ -40,6 +49,12 @@ export const reducer: Reducer<State, Action> = (state, { type, payload }) => {
           (table, ticket) => ({ ...table, [ticket.id]: ticket }),
           state.ticketTable
         ),
+      }
+    }
+    case 'Currency/set': {
+      return {
+        ...state,
+        currency: payload.currency,
       }
     }
   }

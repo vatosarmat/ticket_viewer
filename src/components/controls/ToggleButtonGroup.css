@@ -1,0 +1,42 @@
+.ToggleButtonGroup {
+  display: flex;
+  flex-direction: row;
+}
+
+.ToggleButton {
+  border-left: 1px solid var(--control-border-color);
+  border-right: none;
+  border-top: 1px solid var(--control-border-color);
+  border-bottom: 1px solid var(--control-border-color);
+
+  color: var(--control-primary-color);
+  background-color: #ffffff;
+  padding: var(--spacing);
+}
+
+.ToggleButton:last-child {
+  border-right: 1px solid var(--control-border-color);
+}
+
+/* background */
+.ToggleButton.ToggleButton_checked,
+.ToggleButton.ToggleButton_checked:hover {
+  color: #ffffff;
+  background-color: var(--control-primary-color);
+}
+
+.ToggleButton:hover {
+  cursor: pointer;
+  background-color: var(--control-hover-color);
+}
+
+/* border */
+.ToggleButton_checked,
+.ToggleButton:hover {
+  border-color: var(--control-primary-color);
+}
+
+.ToggleButton_checked + .ToggleButton,
+.ToggleButton:hover + .ToggleButton {
+  border-left-color: var(--control-primary-color);
+}

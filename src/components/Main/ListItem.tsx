@@ -1,13 +1,9 @@
 import { Ticket } from 'state'
+import { priceString, Currency } from 'utils/currency'
 
 import './ListItem.css'
 
-// type ListItemProps = Pick<Ticket, 'id' | 'fullName' | 'city' | 'company'>
-type ListItemProps = Ticket
-
-// const LocationRow:React.FC<Pick<ListItemProps, 'origin_name', >> = () => {
-//
-// }
+type ListItemProps = Ticket & { currency: Currency }
 
 const ListItem: React.FC<ListItemProps> = ({
   origin,
@@ -18,9 +14,10 @@ const ListItem: React.FC<ListItemProps> = ({
   arrival_time,
   destination,
   destination_name,
-  price,
+  priceRub,
   carrier,
   stops,
+  currency,
 }) => {
   return (
     <li className="List-item">
@@ -29,7 +26,7 @@ const ListItem: React.FC<ListItemProps> = ({
         <button>
           Купить
           <br />
-          за {price}
+          за {priceString(priceRub, currency)}
         </button>
       </div>
       <div className="List-item__origin-destination">

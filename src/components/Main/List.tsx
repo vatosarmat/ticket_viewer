@@ -4,7 +4,7 @@ import ListItem from './ListItem'
 import './List.css'
 
 const List: React.FC = () => {
-  const { ticketTable, ticketSortKey } = useContext(StateContext)
+  const { ticketTable, ticketSortKey, currency } = useContext(StateContext)
   const list = Object.values(ticketTable)
 
   return (
@@ -16,7 +16,7 @@ const List: React.FC = () => {
           return aa > bb ? 1 : aa < bb ? -1 : 0
         })
         .map(item => (
-          <ListItem {...item} key={item.id} />
+          <ListItem {...item} currency={currency} key={item.id} />
         ))}
     </ul>
   )
