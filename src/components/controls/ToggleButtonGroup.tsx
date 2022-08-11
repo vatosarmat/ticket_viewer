@@ -1,8 +1,3 @@
-// type ToggleButton
-// const ToggleButton: React.FC = () => {
-//
-// }
-
 import './ToggleButtonGroup.css'
 
 type ToggleButtonGroupProps<Variant extends string> = {
@@ -16,7 +11,6 @@ const ToggleButtonGroup = <Variant extends string>({
   value,
   onChange,
 }: ToggleButtonGroupProps<Variant>) => {
-  console.log(value)
   return (
     <div className="ToggleButtonGroup">
       {variants.map(variant => (

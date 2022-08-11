@@ -22,12 +22,14 @@ export type State = {
   ticketTable: Record<string, Ticket>
   ticketSortKey: 'priceRub'
   currency: Currency
+  stopsFilter: Record<number, boolean>
 }
 
 export const initialState: State = {
   ticketTable: {},
   ticketSortKey: 'priceRub',
   currency: 'RUB',
+  stopsFilter: {},
 }
 
 type Action =
@@ -36,8 +38,12 @@ type Action =
       payload: { ticketList: Ticket[] }
     }
   | {
-      type: 'Currency/set'
+      type: 'Ticket/set_currency'
       payload: { currency: Currency }
+    }
+  | {
+      type: 'Ticket/set_stops_filter'
+      payload: { stopsFilter: Record<number, boolean> }
     }
 
 export const reducer: Reducer<State, Action> = (state, { type, payload }) => {
@@ -51,10 +57,16 @@ export const reducer: Reducer<State, Action> = (state, { type, payload }) => {
         ),
       }
     }
-    case 'Currency/set': {
+    case 'Ticket/set_currency': {
       return {
         ...state,
         currency: payload.currency,
+      }
+    }
+    case 'Ticket/set_stops_filter': {
+      return {
+        ...state,
+        stopsFilter: payload.stopsFilter,
       }
     }
   }

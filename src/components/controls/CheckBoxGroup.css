@@ -1,0 +1,57 @@
+.CheckBoxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) / 2);
+}
+
+.CheckBox {
+  display: flex;
+  flex-direction: row;
+  gap: calc(var(--spacing) / 2);
+
+  align-items: center;
+}
+
+.CheckBox:hover,
+.CheckBox__input:hover {
+  cursor: pointer;
+}
+
+.CheckBox__input {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2em;
+  height: 2em;
+  border: 0.15em solid var(--control-border-color);
+}
+
+.CheckBox__input::before {
+  content: url('../icons/check.svg');
+  /* background-color: currentColor; */
+  transform: scale(0);
+
+  width: 2em;
+  height: 2em;
+  transition: 120ms transform ease-in-out;
+}
+
+.CheckBox__input:checked::before {
+  transform: scale(1);
+}
+
+.CheckBox__label-text {
+  line-height: 1;
+}
+
+.CheckBox__only {
+  border: none;
+  background-color: var(--control-hover-color);
+  color: var(--control-primary-color);
+}
+
+.CheckBox__only:hover {
+  cursor: pointer;
+}

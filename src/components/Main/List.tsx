@@ -4,12 +4,14 @@ import ListItem from './ListItem'
 import './List.css'
 
 const List: React.FC = () => {
-  const { ticketTable, ticketSortKey, currency } = useContext(StateContext)
+  const { ticketTable, ticketSortKey, currency, stopsFilter } = useContext(StateContext)
   const list = Object.values(ticketTable)
+  const haveStopsFilter = Object.values(stopsFilter).some(v => v)
 
   return (
     <ul className="List">
       {list
+        .filter(ticket => !haveStopsFilter || stopsFilter[ticket.stops])
         .sort((a, b) => {
           const aa = a[ticketSortKey]
           const bb = b[ticketSortKey]
