@@ -31,26 +31,35 @@ const Side: React.FC = () => {
     )
 
   return (
-    <div className="Side">
-      <div className="Side-control">
-        <div className="Side-control__label">ВАЛЮТА</div>
-        <ToggleButtonGroup
-          variants={currencyValues}
-          value={currency}
-          onChange={value =>
-            dispatch({ type: 'Ticket/set_currency', payload: { currency: value } })
-          }
-        />
-      </div>
-      <div className="Side-control">
-        <div className="Side-control__label">КОЛИЧЕСТВО ПЕРЕСАДОК</div>
-        <CheckBoxGroup
-          labeledValues={labeledValues}
-          valuesSelected={stopsFilter}
-          onChange={value =>
-            dispatch({ type: 'Ticket/set_stops_filter', payload: { stopsFilter: value } })
-          }
-        />
+    <div>
+      <div className="Side">
+        <div className="Side-content paper">
+          <div className="Side-control">
+            <div className="Side-control__label typography-subheading">Валюта</div>
+            <ToggleButtonGroup
+              variants={currencyValues}
+              value={currency}
+              onChange={value =>
+                dispatch({ type: 'Ticket/set_currency', payload: { currency: value } })
+              }
+            />
+          </div>
+          <div className="Side-control">
+            <div className="Side-control__label typography-subheading">
+              Количество пересадок
+            </div>
+            <CheckBoxGroup
+              labeledValues={labeledValues}
+              valuesSelected={stopsFilter}
+              onChange={value =>
+                dispatch({
+                  type: 'Ticket/set_stops_filter',
+                  payload: { stopsFilter: value },
+                })
+              }
+            />
+          </div>
+        </div>
       </div>
     </div>
   )

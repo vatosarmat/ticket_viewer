@@ -20,7 +20,7 @@ const ListItem: React.FC<ListItemProps> = ({
   currency,
 }) => {
   return (
-    <li className="List-item">
+    <li className="List-item paper">
       <div className="List-item__logo-button">
         <span>{carrier}</span>
         <button>

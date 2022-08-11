@@ -11,13 +11,14 @@ const ToggleButtonGroup = <Variant extends string>({
   value,
   onChange,
 }: ToggleButtonGroupProps<Variant>) => {
+  const buttonClass = 'ToggleButton typography-normal-upper'
   return (
     <div className="ToggleButtonGroup">
       {variants.map(variant => (
         <button
           key={variant}
           className={
-            variant === value ? 'ToggleButton ToggleButton_checked' : 'ToggleButton'
+            variant === value ? `${buttonClass} ToggleButton_checked` : buttonClass
           }
           onClick={() => onChange(variant)}
         >

@@ -37,7 +37,7 @@ const CheckBoxGroup = <Value extends string | number>({
           checked={allChecked}
           onChange={() => onChange(getAll(!allChecked))}
         />
-        <span className="CheckBox__label">ВСЕ</span>
+        <span className="CheckBox__label">Все</span>
       </label>
       {labeledValues.map(([value, label]) => (
         <label
@@ -53,14 +53,17 @@ const CheckBoxGroup = <Value extends string | number>({
             checked={valuesSelected[value] ?? false}
             onChange={onChecked}
           />
-          <span className="CheckBox__label">{label}</span>
+          <span className="CheckBox__label typography-normal">{label}</span>
           {valueHovered === value && (
-            <button
-              className="CheckBox__only"
-              onClick={() => onChange({ ...getAll(false), [value]: true })}
-            >
-              ТОЛЬКО
-            </button>
+            <>
+              <div className="CheckBox__pre-only"></div>
+              <button
+                className="CheckBox__only"
+                onClick={() => onChange({ ...getAll(false), [value]: true })}
+              >
+                только
+              </button>
+            </>
           )}
         </label>
       ))}
