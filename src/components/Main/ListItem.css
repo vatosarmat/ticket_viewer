@@ -55,8 +55,10 @@
 }
 
 .List-item__stops {
-  flex-grow: 1;
+  flex-grow: 100;
   text-align: center;
+  margin-left: calc(-1 * var(--spacing) / 2);
+  margin-right: calc(-1 * var(--spacing) / 2);
 }
 
 .List-item__stops-label {
