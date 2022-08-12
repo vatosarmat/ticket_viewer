@@ -31,7 +31,7 @@ code {
 }
 
 #root > * {
-  margin: 48px auto;
+  margin: auto;
 }
 
 .paper {

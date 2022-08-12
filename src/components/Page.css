@@ -1,11 +1,24 @@
 .Page {
   width: 80%;
   max-width: 1080px;
+}
+
+.Page__content {
   display: flex;
   flex-direction: row;
   gap: var(--spacing);
 }
 
-.Page main {
+.Page header {
+  text-align: center;
+  padding: calc(var(--spacing) * 2);
+}
+
+.Page header img {
+  margin: auto;
+  text-align: center;
+}
+
+.Page__content main {
   flex-grow: 1;
 }
