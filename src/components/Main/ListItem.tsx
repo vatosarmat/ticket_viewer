@@ -1,6 +1,7 @@
 import { Ticket } from 'state'
 import { priceString, Currency } from 'utils/currency'
 import { stopsString } from 'utils/stops'
+import { formatDate } from 'utils/date'
 
 import './ListItem.css'
 
@@ -34,7 +35,9 @@ const ListItem: React.FC<ListItemProps> = ({
         <div className="List-item__origin">
           <div className="List-item__time typography-huge">{departure_time}</div>
           <div className="List-item__location typography-subheading">{`${origin}, ${origin_name}`}</div>
-          <div className="List-item__date typography-normal">{departure_date}</div>
+          <div className="List-item__date typography-normal">
+            {formatDate(departure_date)}
+          </div>
         </div>
         <div className="List-item__stops">
           <div className="List-item__stops-label typography-small-upper">
@@ -47,7 +50,9 @@ const ListItem: React.FC<ListItemProps> = ({
         <div className="List-item__destination">
           <div className="List-item__time typography-huge">{arrival_time}</div>
           <div className="List-item__location typography-subheading">{`${destination_name}, ${destination}`}</div>
-          <div className="List-item__date typography-normal">{arrival_date}</div>
+          <div className="List-item__date typography-normal">
+            {formatDate(arrival_date)}
+          </div>
         </div>
       </div>
     </li>

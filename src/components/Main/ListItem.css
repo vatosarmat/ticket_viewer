@@ -37,12 +37,13 @@
 .List-item__origin-destination {
   flex-grow: 1;
   display: flex;
-  padding: calc(var(--spacing) * 3 / 2);
+  padding: var(--spacing);
   line-height: 1;
 }
 
 .List-item__time {
   color: var(--color-normal);
+  padding-bottom: calc(var(--spacing) / 4);
 }
 
 .List-item__date {
@@ -83,6 +84,9 @@
 .List-item__origin,
 .List-item__destination {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) / 3);
 }
 
 .List-item__destination {
