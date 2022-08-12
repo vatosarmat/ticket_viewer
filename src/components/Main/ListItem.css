@@ -5,7 +5,7 @@
 }
 
 .List-item__logo-button {
-  flex-basis: 36%;
+  flex-basis: 25%;
   border-right: 1px solid #eceff1;
   text-align: center;
   display: flex;
@@ -18,8 +18,15 @@
   color: #ffffff;
   background-color: #ff6d00;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: calc(var(--spacing) / 2);
+
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
+    rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+}
+
+.List-item__logo-button > button:active {
+  box-shadow: none;
 }
 
 .List-item__logo-button > button:hover {
@@ -35,20 +42,42 @@
 }
 
 .List-item__time {
-  font-size: var(--font-size-large);
+  color: var(--color-normal);
 }
 
 .List-item__date {
-  font-size: var(--font-size-normal);
+  color: var(--color-light);
 }
 
 .List-item__location {
-  font-size: var(--font-size-normal);
+  color: var(--color-darker);
+}
+
+.List-item__stops {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.List-item__stops-label {
+  color: var(--color-light);
+}
+
+.List-item__stops-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
 }
 
 .List-item__stops-line {
   flex-grow: 1;
-  text-align: center;
+  height: 2px;
+  background-color: var(--control-border-color);
+}
+
+.List-item__stops-content::after {
+  content: url('../icons/airplane.svg');
+  color: var(--control-border-color);
 }
 
 .List-item__origin,

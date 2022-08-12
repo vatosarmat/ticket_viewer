@@ -7,10 +7,9 @@
 
   --spacing: 24px;
 
-  --font-size-normal: 16px;
-  --font-size-smaller: 12px;
-  --font-size-larger: 16px;
-  --font-size-large: 32px;
+  --color-normal: #545454;
+  --color-darker: #4a4a4a;
+  --color-light: #8b9497;
 }
 
 body {
@@ -32,7 +31,7 @@ code {
 }
 
 #root > * {
-  margin: auto;
+  margin: 48px auto;
 }
 
 .paper {
@@ -52,10 +51,27 @@ code {
 
 .typography-subheading {
   font-size: 17px;
+}
+
+.typography-subheading-upper {
+  font-size: 17px;
   text-transform: uppercase;
 }
 
 .typography-supplement {
   font-size: 15px;
   text-transform: uppercase;
+}
+
+.typography-small-upper {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.typography-larger {
+  font-size: 21px;
+}
+
+.typography-huge {
+  font-size: 36px;
 }

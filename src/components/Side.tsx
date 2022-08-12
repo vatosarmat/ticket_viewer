@@ -3,16 +3,9 @@ import ToggleButtonGroup from 'components/controls/ToggleButtonGroup'
 import CheckBoxGroup from 'components/controls/CheckBoxGroup'
 import { StateContext, DispatchContext } from 'state'
 import { currencyValues } from 'utils/currency'
+import { stopsString } from 'utils/stops'
 
 import './Side.css'
-
-const LUT: Record<number, string> = {
-  0: 'Без пересадок',
-  1: '1 пересадка',
-  2: '2 пересадки',
-  3: '3 пересадки',
-  4: '4 пересадки',
-}
 
 const Side: React.FC = () => {
   const { currency, ticketTable, stopsFilter } = useContext(StateContext)
@@ -26,16 +19,14 @@ const Side: React.FC = () => {
   const labeledValues = Object.keys(possibleStops)
     .map(key => parseInt(key, 10))
     .sort()
-    .map(
-      stopsCount => [stopsCount, LUT[stopsCount] ?? `${stopsCount} пересадок`] as const
-    )
+    .map(stopsCount => [stopsCount, stopsString(stopsCount)] as const)
 
   return (
     <div>
       <div className="Side">
         <div className="Side-content paper">
           <div className="Side-control">
-            <div className="Side-control__label typography-subheading">Валюта</div>
+            <div className="Side-control__label typography-subheading-upper">Валюта</div>
             <ToggleButtonGroup
               variants={currencyValues}
               value={currency}
@@ -45,7 +36,7 @@ const Side: React.FC = () => {
             />
           </div>
           <div className="Side-control">
-            <div className="Side-control__label typography-subheading">
+            <div className="Side-control__label typography-subheading-upper">
               Количество пересадок
             </div>
             <CheckBoxGroup

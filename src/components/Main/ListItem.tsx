@@ -1,5 +1,6 @@
 import { Ticket } from 'state'
 import { priceString, Currency } from 'utils/currency'
+import { stopsString } from 'utils/stops'
 
 import './ListItem.css'
 
@@ -23,7 +24,7 @@ const ListItem: React.FC<ListItemProps> = ({
     <li className="List-item paper">
       <div className="List-item__logo-button">
         <span>{carrier}</span>
-        <button>
+        <button className="List-item__button typography-larger">
           Купить
           <br />
           за {priceString(priceRub, currency)}
@@ -31,15 +32,22 @@ const ListItem: React.FC<ListItemProps> = ({
       </div>
       <div className="List-item__origin-destination">
         <div className="List-item__origin">
-          <div className="List-item__time">{departure_time}</div>
-          <div className="List-item__location">{`${origin}, ${origin_name}`}</div>
-          <div className="List-item__date">{departure_date}</div>
+          <div className="List-item__time typography-huge">{departure_time}</div>
+          <div className="List-item__location typography-subheading">{`${origin}, ${origin_name}`}</div>
+          <div className="List-item__date typography-normal">{departure_date}</div>
         </div>
-        <div className="List-item__stops-line">{stops}</div>
+        <div className="List-item__stops">
+          <div className="List-item__stops-label typography-small-upper">
+            {stopsString(stops)}
+          </div>
+          <div className="List-item__stops-content">
+            <div className="List-item__stops-line" />
+          </div>
+        </div>
         <div className="List-item__destination">
-          <div className="List-item__time">{arrival_time}</div>
-          <div className="List-item__location">{`${destination_name}, ${destination}`}</div>
-          <div className="List-item__date">{arrival_date}</div>
+          <div className="List-item__time typography-huge">{arrival_time}</div>
+          <div className="List-item__location typography-subheading">{`${destination_name}, ${destination}`}</div>
+          <div className="List-item__date typography-normal">{arrival_date}</div>
         </div>
       </div>
     </li>

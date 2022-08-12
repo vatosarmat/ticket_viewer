@@ -59,8 +59,9 @@
   transform: scale(1);
 }
 
-.CheckBox__label-text {
+.CheckBox__label {
   line-height: 1;
+  color: var(--color-normal);
 }
 
 .CheckBox__pre-only {

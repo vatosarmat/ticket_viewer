@@ -17,3 +17,7 @@
   flex-direction: column;
   gap: calc(var(--spacing) * 3 / 4);
 }
+
+.Side-control__label {
+  color: var(--color-darker);
+}
