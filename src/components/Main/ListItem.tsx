@@ -2,6 +2,7 @@ import { Ticket } from 'state'
 import { priceString, Currency } from 'utils/currency'
 import { stopsString } from 'utils/stops'
 import { formatDate } from 'utils/date'
+import { airlinesLogo } from 'utils/airlines'
 
 import './ListItem.css'
 
@@ -24,7 +25,7 @@ const ListItem: React.FC<ListItemProps> = ({
   return (
     <li className="List-item paper">
       <div className="List-item__logo-button">
-        <span>{carrier}</span>
+        <img src={airlinesLogo[carrier]} alt={carrier} />
         <button className="List-item__button typography-larger">
           Купить
           <br />
