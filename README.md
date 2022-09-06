@@ -1,3 +1,2 @@
-# Ticket viewer app
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
+http://verdant-help.surge.sh/
